@@ -1,4 +1,9 @@
-require_relative "../borisbike1.rb"
+require_relative "borisbike1.rb"
 
 docking_station = DockingStation.new
-bike = docking_station.release_bike
+20.times { 
+  bike = Bike.new
+  docking_station.dock(bike) 
+  puts bike
+}
+

@@ -36,7 +36,19 @@ require_relative "../borisbike1.rb"
       subject.dock(bike)
       expect(subject.release_bike).to eq bike
     end
+    it 'raises an error when user tries to enter a bike, but dock is full' do
+    
+      docking_station = DockingStation.new 
+      20.times { docking_station.dock(Bike.new)}
+  
+      expect{ docking_station.dock(Bike.new)}.to raise_error "Dock full"
+
+    end
+    
+    
   end
+
+  
   end
 
   

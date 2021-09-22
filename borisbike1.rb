@@ -2,19 +2,23 @@ class DockingStation
 
   attr_reader :bike
 
-  # def initialize
-  # @bikes_in_station = []
-  # end
+   def initialize
+    @bike_storage = []
+   end
+
   def release_bike 
     #raise "no bikes"
     #Bike.new
-    fail 'No bikes available' unless @bike
-    @bike
+    fail 'No bikes available' if @bike_storage.empty?
+    @bikes.pop
 
   end
 
   def dock(bike)
-    @bike = bike
+    fail 'Dock full' if @bike_storage.count >= 20
+    @bike_storage << bike
+    # fail 'Dock full' unless @bike == nil
+    # @bike = bike
   end
 end
 
