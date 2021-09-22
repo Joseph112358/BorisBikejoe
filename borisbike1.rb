@@ -1,21 +1,29 @@
 class DockingStation
-  def release_bike
-    bike = Bike.new
-    return bike
+
+  attr_reader :bike
+
+  # def initialize
+  # @bikes_in_station = []
+  # end
+  def release_bike 
+    #raise "no bikes"
+    #Bike.new
+    fail 'No bikes available' unless @bike
+    @bike
+
   end
 
-  def dock_bike(bike)
+  def dock(bike)
     @bike = bike
-
-    return "Bike is docked"
   end
 end
 
 class Bike
-  def is_working
-    return true
+
+  def working?
   end
+
 end
 
-docking_station = DockingStation.new
-bike = docking_station.release_bike
+# docking_station = DockingStation.new
+# bike = docking_station.release_bike
